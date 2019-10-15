@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const os = require('os')
+const emoji = require('node-emoji')
 
 class stop_info {
     constructor() {
@@ -15,7 +16,7 @@ class stop_info {
             'Server Has Been Stopped',
         )} ${chalk.red(`platform ${os.platform()}`)} ${chalk.blue(
             `Arch ${os.arch()}`,
-        )}
+        )} ${emoji.emojify(':heavy_multiplication_x:')}
         `
         let star = `
               

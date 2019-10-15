@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 const os = require('os')
-
+const emoji = require('node-emoji')
 class stop_info {
     constructor() {
         let d = new Date()
@@ -17,10 +17,11 @@ class stop_info {
             'Server is Running on Port',
         )} ${chalk.green(`[${PORT}]`)} ${chalk.red(
             `platform ${os.platform()}`,
-        )} ${chalk.blue(`Arch ${os.arch()}`)}
+        )} ${chalk.blue(`Arch ${os.arch()}`)} ${emoji.emojify(
+            ':heavy_check_mark:',
+        )}
         `
-        let star = `
-              
+        let star = `                      ${chalk.yellow('\nAuthor Amitabh')}
             ${chalk.grey(
                 '*********************************************************************',
             )}

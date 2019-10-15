@@ -4,7 +4,7 @@
     "description": "college project 3rd sem aniket raj",
     "main": "index.js",
     "scripts": {
-        "postinstall": "npm install -g pm2",
+        "postinstall": "npm install -g pm2 && node ./node_js/packageInstall.js",
         "start": "pm2 start ecosystem.config.js && node ./node_js/startinfo.js",
         "stop": "pm2 stop index.js && node ./node_js/stopinfo.js",
         "status": "pm2 status",
@@ -40,6 +40,7 @@
         "https": "^1.0.0",
         "morgan": "^1.9.1",
         "multer": "^1.4.2",
+        "node-emoji": "^1.10.0",
         "os": "^0.1.1",
         "request": "^2.88.0",
         "serve-favicon": "^2.5.0",

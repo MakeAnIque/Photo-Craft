@@ -2,6 +2,7 @@ const chalk = require('chalk')
 const os = require('os')
 const fs = require('fs')
 const path = require('path')
+const emoji = require('node-emoji')
 
 class stop_info {
     constructor() {
@@ -23,8 +24,8 @@ class stop_info {
         for (let i in d_obj) {
             p_name =
                 p_name +
-                `\n${chalk.grey(i)} - ${chalk.grey(d_obj[i])} ${chalk.green(
-                    '*',
+                `\n${chalk.grey(i)} - ${chalk.grey(d_obj[i])} ${emoji.emojify(
+                    ':heavy_check_mark:',
                 )}`
         }
         let t = `
