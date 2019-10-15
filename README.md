@@ -20,7 +20,7 @@ this proejct is storing photo and upload there and share and to all user that ar
 -   first clone the repository from link
 
 ```sh
-    $ git clone https://github.com/amitabh-anandcl/college_project_1.git
+    $ git clone https://github.com/amitabh-anandcl/Photo-Craft.git
 ```
 
 -   then into the `college_project_1`
