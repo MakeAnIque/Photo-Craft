@@ -40,7 +40,7 @@ let { ranks } = require('./node_js/ranks')
 // end of file
 let { upload_oper } = require('./node_js/upload')
 
-let { rankspic } = require('./node_js/ranks_file')
+let { deletePic } = require('./node_js/delete_item')
 
 /**
  * express app created
@@ -201,6 +201,10 @@ app.post('/ranks_lists', ranks.detail, (req, res) => {})
 app.post('/liked_', upload_oper.checkLike, (req, res) => {})
 /**emd */
 app.get('/download', ranks.download, () => {})
+/**
+ * delete items file
+ */
+app.post('/delete_f', deletePic.deleteItem, (req, res) => {})
 /**
  * not found page
  */

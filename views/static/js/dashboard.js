@@ -24,11 +24,7 @@ window.onload = () => {
 
         var ajax = new XMLHttpRequest()
 
-        ajax.upload.addEventListener(
-            'progress',
-            progressHandler,
-            false,
-        )
+        ajax.upload.addEventListener('progress', progressHandler, false)
 
         ajax.addEventListener('load', completeHandler, false)
 
@@ -67,35 +63,6 @@ window.onload = () => {
         function abortHandler(event) {
             swal('Handler Aborted', '', 'error')
         }
-        // var formData = new FormData(_('formd'));
-        // let cardt = _('card_t').value
-        // let cardd = _('card_d').value
-
-        // let json = {
-        //     card_title: cardt,
-        //     card_detail: cardd
-        // }
-        // let jsonString = JSON.stringify(json)
-        // $.ajax({
-        //     url: window.location.origin + '/upload?q=' + jsonString,
-        //     type: 'POST',
-        //     data: formData,
-        //     processData: true, // tell jQuery not to process the data
-        //     contentType: false, // tell jQuery not to set contentType
-        //     success: function (data) {
-
-        // swal("File Uploaded", "", "success")
-        // setTimeout(() => {
-        //     let removeimg = _('preimg').src = ""
-
-        //     updateList(data)
-        // }, 2000)
-        //     },
-        //     uploadProgress: function(event, position, total, percentComplete) {
-        //         var percentVal = percentComplete + '%';
-        //         console.log(percentVal)
-        //     }
-        // });
     })
 
     // take list of data
@@ -135,7 +102,7 @@ window.onload = () => {
         }
         let ids = `${json.filename}likebutton`
 
-        let divs_photos = `<center>
+        let divs_photos = `<center id="${json.filename}deleteitemcnf">
             <hr>
             <div class="d-inline-block">
                 <center>
@@ -150,6 +117,7 @@ window.onload = () => {
                         <p class="card-text">${json.card_decs}</p>
                         <i id="${ids}" onclick="liked('${json.filename}' , '${json.whoupload}')" style="font-size: 25px; float : left;cursor:pointer; ${s_oflike}" class="fa fa-thumbs-up"></i>
                         <i id="${ids}" onclick="download('${json.filename}')" style="font-size: 25px; float : right;cursor:pointer" class="fa fa-download"></i>
+                        <i id="${ids}" onclick="delete_items('${json.filename}')" style="font-size: 25px; float : right;cursor:pointer;margin-right:40px" class="fa fa-trash"></i>
                         <h5 id="${json.filename}" class="card-title"> ${json.likes} likes </h5>
                         
                     </div>

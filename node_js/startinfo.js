@@ -21,7 +21,7 @@ class stop_info {
             ':heavy_check_mark:',
         )}
         `
-        let star = `                      ${chalk.yellow('\nAuthor Amitabh')}
+        let star = `${chalk.yellow('\nAuthor Aniket Raj')}
             ${chalk.grey(
                 '*********************************************************************',
             )}

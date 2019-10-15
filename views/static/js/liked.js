@@ -28,6 +28,24 @@ function check_like(r, e) {
 function showProfile(username) {
     window.location.href = '/showprofile/' + username
 }
+function delete_items(filename_id) {
+    let json = {
+        filename: filename_id,
+    }
+    let del = ajax('/delete_f?q=', JSON.stringify(json))
+
+    del.then(d => {
+        let img_ref = _i(filename_id + 'deleteitemcnf')
+
+        let del_flag = JSON.parse(d)
+        if (del_flag.del == true) {
+            swal('Item Deleted', filename_id, 'success')
+            img_ref.innerHTML = ''
+        } else {
+            swal('Error', '', 'error')
+        }
+    })
+}
 
 function download(filename_id) {
     let json = {
