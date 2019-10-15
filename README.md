@@ -26,7 +26,7 @@ this proejct is storing photo and upload there and share and to all user that ar
 -   then into the `college_project_1`
 
 ```sh
-   $ cd college_project_1
+   $ cd Photo-Craft
 ```
 
 -   Now follow the command `note` PM2 used init it so not done `node index.js ...` follow command.
