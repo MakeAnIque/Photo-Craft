@@ -52,5 +52,62 @@ class Ranks_of_pic {
             },
         )
     }
+    visible(req, res, next) {
+        let email = JSON.parse(base64.decode(utf8.decode(req.cookies.auth)))
+
+        let filename = JSON.parse(req.query.q)
+        console.log('checked')
+
+        fs.readdir(
+            path.join(
+                __dirname,
+                '..',
+                'database',
+                'accounts',
+                email.email,
+                'storage',
+            ),
+            (err, data) => {
+                if (err) {
+                    throw err
+                }
+
+                for (let i of data) {
+                    if (i == filename.filename + '.json') {
+                        let v_data = JSON.parse(
+                            fs
+                                .readFileSync(
+                                    path.join(
+                                        __dirname,
+                                        '..',
+                                        'database',
+                                        'accounts',
+                                        email.email,
+                                        'storage',
+                                        i,
+                                    ),
+                                )
+                                .toString(),
+                        )
+                        v_data.visible = filename.visible_set
+
+                        fs.writeFileSync(
+                            path.join(
+                                __dirname,
+                                '..',
+                                'database',
+                                'accounts',
+                                email.email,
+                                'storage',
+                                i,
+                            ),
+                            JSON.stringify(v_data),
+                        )
+                        res.send({ vis: v_data.visible })
+                    }
+                }
+            },
+        )
+    }
 }
 exports.deletePic = new Ranks_of_pic()

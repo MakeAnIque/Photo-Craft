@@ -96,10 +96,16 @@ window.onload = () => {
         let like_s = JSON.parse(flag)
 
         let s_oflike = `color : black`
+        let visible_item_flag = `fa fa-eye`
 
         if (like_s.liked == true) {
             s_oflike = `color : blue`
         }
+
+        if (json.visible == false) {
+            visible_item_flag = `fa fa-eye-slash`
+        }
+
         let ids = `${json.filename}likebutton`
 
         let divs_photos = `<center id="${json.filename}deleteitemcnf">
@@ -117,7 +123,11 @@ window.onload = () => {
                         <p class="card-text">${json.card_decs}</p>
                         <i id="${ids}" onclick="liked('${json.filename}' , '${json.whoupload}')" style="font-size: 25px; float : left;cursor:pointer; ${s_oflike}" class="fa fa-thumbs-up"></i>
                         <i id="${ids}" onclick="download('${json.filename}')" style="font-size: 25px; float : right;cursor:pointer" class="fa fa-download"></i>
+
                         <i id="${ids}" onclick="delete_items('${json.filename}')" style="font-size: 25px; float : right;cursor:pointer;margin-right:40px" class="fa fa-trash"></i>
+
+                        <i id="${json.filename}vis" onclick="visibleItem('${json.filename}')" style="font-size: 25px; float : right;cursor:pointer;margin-right:40px;" class="${visible_item_flag}"></i>
+
                         <h5 id="${json.filename}" class="card-title"> ${json.likes} likes </h5>
                         
                     </div>

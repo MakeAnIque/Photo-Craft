@@ -205,6 +205,8 @@ app.get('/download', ranks.download, () => {})
  * delete items file
  */
 app.post('/delete_f', deletePic.deleteItem, (req, res) => {})
+
+app.post('/visible', deletePic.visible, (req, res) => {})
 /**
  * not found page
  */

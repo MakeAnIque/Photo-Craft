@@ -49,8 +49,11 @@ window.onload = () => {
         return arr
     }
 
-    console.log(_('idsofuser').innerHTML)
     async function updateList(json) {
+        if (json.visible == false) {
+            return
+        }
+
         let flag = await check_like(json)
         let like_s = JSON.parse(flag)
 

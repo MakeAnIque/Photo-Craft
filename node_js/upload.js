@@ -26,6 +26,7 @@ class upload_file {
             whodisliked: [],
             likes: 0,
             dislikes: 0,
+            visible: false,
         }
 
         fs.writeFileSync(
@@ -98,9 +99,7 @@ class upload_file {
      * @param {*} next
      */
     like_dislike(req, res, next) {
-        let bytes = JSON.parse(
-            utf8.decode(base64.decode(req.cookies.auth)),
-        )
+        let bytes = JSON.parse(utf8.decode(base64.decode(req.cookies.auth)))
 
         let q = JSON.parse(req.query.q)
 
@@ -162,9 +161,7 @@ class upload_file {
      * @param {*} next
      */
     checkLike(req, res, next) {
-        let bytes = JSON.parse(
-            base64.decode(utf8.decode(req.cookies.auth)),
-        )
+        let bytes = JSON.parse(base64.decode(utf8.decode(req.cookies.auth)))
 
         let json_c = JSON.parse(req.query.q)
 
@@ -189,9 +186,7 @@ class upload_file {
      * @param {*} next
      */
     unlike(req, res, next) {
-        let bytes = JSON.parse(
-            utf8.decode(base64.decode(req.cookies.auth)),
-        )
+        let bytes = JSON.parse(utf8.decode(base64.decode(req.cookies.auth)))
 
         let q = JSON.parse(req.query.q)
 
@@ -211,10 +206,7 @@ class upload_file {
                 .toString(),
         )
 
-        json_unlike.wholiked.splice(
-            json_unlike.wholiked.indexOf(q.email),
-            1,
-        )
+        json_unlike.wholiked.splice(json_unlike.wholiked.indexOf(q.email), 1)
 
         json_unlike.likes = json_unlike.likes - 1
 

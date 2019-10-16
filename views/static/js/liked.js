@@ -28,6 +28,33 @@ function check_like(r, e) {
 function showProfile(username) {
     window.location.href = '/showprofile/' + username
 }
+
+function visibleItem(filename_id) {
+    let json = {
+        filename: filename_id,
+        visible_set: null,
+    }
+    let check_vis = _i(filename_id + 'vis')
+
+    console.log(check_vis.className)
+    if (check_vis.className == 'fa fa-eye') {
+        json.visible_set = false
+    } else {
+        json.visible_set = true
+    }
+    let del = ajax('/visible?q=', JSON.stringify(json))
+
+    del.then(d => {
+        let con_j = JSON.parse(d)
+        console.log(con_j)
+        if (con_j.vis == true) {
+            check_vis.className = 'fa fa-eye'
+        } else {
+            check_vis.className = 'fa fa-eye-slash'
+        }
+    })
+}
+
 function delete_items(filename_id) {
     let json = {
         filename: filename_id,
