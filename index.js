@@ -48,7 +48,7 @@ let { deletePic } = require('./node_js/delete_item')
 
 const app = express()
 
-const PORT = process.env.PORT || 5000 // port number can be you can change according
+const PORT = 80 // port number can be you can change according
 
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
     flags: 'a',
