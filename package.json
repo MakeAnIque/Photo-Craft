@@ -8,7 +8,7 @@
         "start": "pm2 start ecosystem.config.js && node ./node_js/startinfo.js",
         "stop": "pm2 stop index.js && node ./node_js/stopinfo.js",
         "status": "pm2 status",
-        "open": "start chrome http://127.0.0.1:5000"
+        "open": "start chrome http://127.0.0.1:80"
     },
     "repository": {
         "type": "git",
